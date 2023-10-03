@@ -1,0 +1,39 @@
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+
+#define NOGDICAPMASKS
+#define NOSYSMETRICS
+#define NOMENUS
+#define NOICONS
+#define NOSYSCOMMANDS
+#define NORASTEROPS
+#define OEMRESOURCE
+#define NOATOM
+#define NOCLIPBOARD
+#define NOCTLMGR
+#define NODRAWTEXT
+#define NOKERNEL
+#define NONILS
+#define NOMEMMGR
+#define NOMETAFILE
+#define NOMINMAX
+#define NOOPENFILE
+#define NOSCROLL
+#define NOSERVICE
+#define NOSOUND
+#define NOTEXTMETRIC
+#define NOWH
+#define NOCOMM
+#define NOKANJI
+#define NOHELP
+#define NOPROFILER
+#define NODEFERWINDOWPOS
+#define NOMCX
+#define NOPROXYSTUB
+#define NOIMAGE
+#define NO
+#define NOTAPE
+#define STRICT
+
+#include <Windows.h>

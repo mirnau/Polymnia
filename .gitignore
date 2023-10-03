@@ -30,3 +30,16 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio cache directory
+.vs/
+*.suo
+*.vcxproj.user
+*.vcxproj.filters
+*.opensdf
+*.sdf
+*.vcproj
+*.vcxproj
+
+# Other
+x64/

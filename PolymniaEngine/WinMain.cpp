@@ -12,7 +12,7 @@ int _stdcall WinMain(
 	uint32_t height { 1280 };
 
 	Window window(width, height, className);
-
+	
 	while (true)
 	{
 		if (const auto msgCode = Window::ProcessMessages())

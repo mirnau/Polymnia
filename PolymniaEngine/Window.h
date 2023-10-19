@@ -1,7 +1,9 @@
+#define WINDOW_EXCEPTION( hr ) WindowException(__LINE__,__FILE__, hr)
+#define WINDOW_EXCEPTION() WindowException(__LINE__,__FILE__)
+
 #pragma once
 
 #include <cstdint>
-
 #include "SlimWindows.h"
 
 class Window
@@ -12,9 +14,9 @@ public:
 	~Window();
 
 	Window(const Window&) = delete;
-	Window(const Window&&) = delete;
+	Window(Window&&) = delete;
 	Window& operator=(const Window&) = delete;
-	Window& operator=(const Window&&) = delete;
+	Window& operator=(Window&&) = delete;
 
 public:
 	static uint32_t ProcessMessages();

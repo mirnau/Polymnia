@@ -1,4 +1,5 @@
 #include "Window.h"
+#include "resource.h"
 
 Window::Window(uint32_t width, uint32_t height, const wchar_t* name) noexcept
     : 
@@ -17,8 +18,8 @@ Window::Window(uint32_t width, uint32_t height, const wchar_t* name) noexcept
     wc.cbWndExtra = 0;
     wc.hInstance = hInstance;
     wc.lpszClassName = wndName;
-    wc.hIcon = nullptr;
-    wc.hIconSm = nullptr;
+    wc.hIcon = static_cast<HICON>(LoadImage(hInstance, MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, 32, 32, 0));
+    wc.hIconSm = static_cast<HICON>(LoadImage(hInstance, MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, 16, 16, 0));
 
     RegisterClassEx(&wc); 	// Register the window class.
 
@@ -57,7 +58,7 @@ Window::~Window()
 // Messagepump
 uint32_t Window::ProcessMessages()
 {
-    MSG msg = { };
+    MSG msg {};
 
     while (PeekMessageA(&msg, nullptr, 0, 0, PM_REMOVE)) // (GetMessage(&msg, nullptr, 0, 0) != 0)//
     {
@@ -76,7 +77,7 @@ LRESULT _stdcall Window::WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM l
 {
     switch (msg)
     {
-    case WM_DESTROY:
+    case WM_QUIT:
         PostQuitMessage(0);
         return 0;
 

@@ -15,6 +15,7 @@ const char* BaseEngineException::what() const noexcept
 	oss << "[File]" << file << endl
 		<< "[Line]" << line << endl;
 	whatBuffer = oss.str();
+
 	return whatBuffer.c_str();
 }
 

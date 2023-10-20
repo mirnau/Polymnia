@@ -1,16 +1,16 @@
 #define WINDOW_EXCEPTION( hr ) WindowException(__LINE__,__FILE__, hr)
-#define WINDOW_EXCEPTION() WindowException(__LINE__,__FILE__)
+#define WINDOW_EXCEPTION() WindowException(__LINE__,__FILE__,GetLastError())
 
 #pragma once
 
 #include <cstdint>
 #include "SlimWindows.h"
+#include "Keyboard.hpp"
 
 class Window
 {
-
 public:
-	Window(uint32_t width, uint32_t height, const wchar_t* name) noexcept;
+	Window(uint32_t width, uint32_t height, const wchar_t* name);
 	~Window();
 
 	Window(const Window&) = delete;
@@ -19,13 +19,15 @@ public:
 	Window& operator=(Window&&) = delete;
 
 public:
+	static Keyboard keyBoard;
+public:
 	static uint32_t ProcessMessages();
 
 private:
 	static LRESULT _stdcall WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 private:
-	HWND hwnd;
+	HWND windowHandle;
 	HINSTANCE hInstance;
 	uint32_t height;
 	uint32_t width;

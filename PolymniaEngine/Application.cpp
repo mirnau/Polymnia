@@ -8,8 +8,3 @@ int Application::Run()
 
 	return appWindow.Run();
 }
-
-
-
-
-

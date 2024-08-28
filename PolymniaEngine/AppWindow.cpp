@@ -8,28 +8,67 @@ AppWindow::~AppWindow()
 
 LRESULT CALLBACK AppWindow::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+ 	//GWLP_USERDATA contains ptr to window
+	AppWindow* pThis = reinterpret_cast<AppWindow*>(GetWindowLongPtr(hWnd, GWLP_USERDATA));
+
+	if (pThis)
+	{
+		return pThis->HandleMessage(message, wParam, lParam);
+	}
+	
+	return DefWindowProc(hWnd, message, wParam, lParam);
+}
+
+LRESULT AppWindow::HandleMessage(UINT message, WPARAM wParam, LPARAM lParam) noexcept
+{
 	PAINTSTRUCT ps;
 	HDC hdc;
 	TCHAR greeting[] = _T("Hello, Windows desktop!");
 
 	switch (message)
 	{
+		case WM_KEYDOWN:
+		case WM_SYSKEYDOWN:
+			{
+				keyboard.OnKeyDown(wParam, message);
+			}
+			break;
+
+		case WM_KEYUP:
+		case WM_SYSKEYUP:
+			{
+				keyboard.OnKeyUp(wParam);
+			}
+			break;
+
+		case WM_CHAR:
+			{
+
+			}
+		break;
+
 		case WM_PAINT:
-			hdc = BeginPaint(hWnd, &ps);
+			{
+				hdc = BeginPaint(hWnd, &ps);
 
-			// Here your application is laid out.
-			// For this introduction, we just print out "Hello, Windows desktop!"
-			// in the top left corner.
-			TextOut(hdc,
-				5, 5,
-				greeting, _tcslen(greeting));
-			 // End application specific layout section.
+				// Here your application is laid out.
+				// For this introduction, we just print out "Hello, Windows desktop!"
+				// in the top left corner.
+				TextOut(hdc,
+					5, 5,
+					greeting, _tcslen(greeting));
+				// End application specific layout section.
 
-			EndPaint(hWnd, &ps);
+				EndPaint(hWnd, &ps);
+			}
 			break;
+
 		case WM_DESTROY:
-			PostQuitMessage(0);
+			{
+				PostQuitMessage(0);
+			}
 			break;
+
 		default:
 			return DefWindowProc(hWnd, message, wParam, lParam);
 			break;
@@ -37,7 +76,6 @@ LRESULT CALLBACK AppWindow::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
 
 	return 0;
 }
-
 
 int AppWindow::Init()
 {
@@ -73,8 +111,10 @@ int AppWindow::Init()
 		szWindowClass,					// szWindowClass: the name of the application
 		szTitle,						// szTitle: the text that appears in the title bar
 		WS_OVERLAPPEDWINDOW, 			// WS_OVERLAPPEDWINDOW: the type of window to create
-		CW_USEDEFAULT, CW_USEDEFAULT, 	// CW_USEDEFAULT, CW_USEDEFAULT: initial position (x, y)
-		500, 100, 						// 500, 100: initial size (width, length)
+		CW_USEDEFAULT,					// Init x-position	
+		CW_USEDEFAULT, 					// Init y-position
+		500,							// Width
+		100, 							// Height
 		NULL, 							// NULL: the parent of this window
 		NULL, 							// NULL: this application does not have a menu bar
 		hInstance,						// hInstance: the first parameter from WinMain
@@ -91,18 +131,13 @@ int AppWindow::Init()
 		return 1;
 	}
 
+	// Store the instance ptr in user data
+	SetWindowLongPtr(hWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(this));
+
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
 
-	MSG msg;
-
-	while (GetMessage(&msg, NULL, 0, 0))
-	{
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
-	}
-
-	return (int) msg.wParam;
+	return Run();
 }
 
 int AppWindow::Run() 

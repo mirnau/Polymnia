@@ -3,13 +3,15 @@
 #include <tchar.h>
 
 #include "AppWindow.h"
+#include "Keyboard.h"
 
 class Application
 {
 
 public:
-	Application(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) : 
-		appWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow) {}
+	inline Application(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) :
+		appWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, keyboard),
+		keyboard() {}
 
 	Application(Application& a) = delete;
 	Application(Application&& a) = delete;
@@ -19,4 +21,5 @@ public:
 	int Run();
 
 	AppWindow appWindow;
+	Keyboard keyboard;
 };

@@ -12,6 +12,7 @@ namespace LoggerTool
 	enum Swatch 
 	{
 		Default,
+        Green,
 		Yellow,
 		Red,
 	};
@@ -26,10 +27,15 @@ namespace LoggerTool
         {
 #if PL_PLATFORM_WINDOWS
             HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+            if(hConsole == INVALID_HANDLE_VALUE) return;
+
             switch(swatch)
             {
                 case LoggerTool::Default:
-                    SetConsoleTextAttribute(hConsole, 7);
+                    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+                    break;
+                case LoggerTool::Green:
+                    SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
                     break;
                 case LoggerTool::Yellow:
                     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
@@ -38,12 +44,11 @@ namespace LoggerTool
                     SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
                     break;
                 default:
-                    SetConsoleTextAttribute(hConsole, 7);
+                    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
                     break;
             }
 
 #else
-
             switch(swatch)
             {
                 case LoggerTool::Default:
@@ -55,12 +60,15 @@ namespace LoggerTool
                 case LoggerTool::Red:
                     std::cout << "\033[1;31m";
                     break;
+                case LoggerTool::Green:
+                    std::cout << "\033[1;32m";
+                    break;
                 default:
                     std::cout << "\033[0m";
                     break;
             }
-
 #endif
         }
+
 	};
 }

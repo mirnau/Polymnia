@@ -1,0 +1,12 @@
+﻿  Client.cpp
+D:\Repo\Polymnia\Logger\Source\Log.h(37,21): warning C4251: 'LoggerTool::Log::s_m_mutex': class 'std::mutex' needs to have dll-interface to be used by clients of class 'LoggerTool::Log'
+  (compiling source file 'Source/Client.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.38.33130\include\mutex(102,19):
+  see declaration of 'std::mutex'
+  
+D:\Repo\Polymnia\Logger\Source\Log.h(38,31): warning C4251: 'LoggerTool::Log::Instance': class 'std::shared_ptr<LoggerTool::Log>' needs to have dll-interface to be used by clients of class 'LoggerTool::Log'
+  (compiling source file 'Source/Client.cpp')
+  D:\Repo\Polymnia\Logger\Source\Log.h(38,15):
+  see declaration of 'std::shared_ptr<LoggerTool::Log>'
+  
+  Client.vcxproj -> D:\Repo\Polymnia\bin\Debug-windows-x86_64\Client\Client.exe

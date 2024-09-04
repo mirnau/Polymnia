@@ -3,24 +3,13 @@
 
 namespace Polymnia 
 { 
-	Application::Application() : 
-		log(LoggerTool::Log::GetInstance())
-	{
-
-
-	}
-	
-	Application::~Application()
-	{
-		LoggerTool::Log::DestroyInstance();
-	}
-	
 	void Application::Run()
 	{
-		LOG_MESSAGE(LoggerTool::Level::Trace, "Log Library Hello");
+		LOG_MESSAGE(LoggerTool::Level::Info, "Application is running\n");
 		
-		while (true)
-		{
-		}
+		//while (true)
+		//{
+		//
+		//}
 	}
 }

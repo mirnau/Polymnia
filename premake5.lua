@@ -67,11 +67,6 @@ project "Polymnia"
         "Logger"
     }
 
-    dependson 
-    { 
-        "Logger" 
-    }
-
     filter "system:windows"
         cppdialect"C++20"
         staticruntime "On"
@@ -118,11 +113,7 @@ project "Client"
         "Logger/Source",
         "Polymnia/Source"
     }
-
-    dependson 
-    { 
-        "Logger" 
-    }
+    
 
     filter "system:windows"
         cppdialect"C++20"

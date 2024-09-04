@@ -9,14 +9,11 @@ namespace Polymnia
 { 
 	class POLYMNIA_API Application
 	{
-		LoggerTool::Log* log;
-
 	public:
-		Application();
-		virtual ~Application();
+		Application() noexcept = default;
+		virtual ~Application() noexcept = default;
 
 		void Run();
-
 	};
 	
 	// To be defined in client

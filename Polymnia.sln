@@ -1,37 +1,45 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.8.34330.188
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Polymnia", "Polymnia\Polymnia.vcxproj", "{EC5347E1-2D69-4D2C-8E25-A165B86DE5CB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "Client\Client.vcxproj", "{644D06AC-50EF-3082-39AA-44D625EBB7D2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{25F339C1-1195-6497-FA4F-78EBE690EBE7} = {25F339C1-1195-6497-FA4F-78EBE690EBE7}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Logger", "Logger\Logger.vcxproj", "{9565DE15-7BC5-4A41-9BA5-650F9E12947E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Logger", "Logger\Logger.vcxproj", "{25F339C1-1195-6497-FA4F-78EBE690EBE7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "Client\Client.vcxproj", "{E2473E29-B19C-4B3B-AE57-08387EC68BA6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Polymnia", "Polymnia\Polymnia.vcxproj", "{0E887EB5-FA54-D9C0-236E-C7680F9A0E4F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{25F339C1-1195-6497-FA4F-78EBE690EBE7} = {25F339C1-1195-6497-FA4F-78EBE690EBE7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
+		Dist|x64 = Dist|x64
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EC5347E1-2D69-4D2C-8E25-A165B86DE5CB}.Debug|x64.ActiveCfg = Debug|x64
-		{EC5347E1-2D69-4D2C-8E25-A165B86DE5CB}.Debug|x64.Build.0 = Debug|x64
-		{EC5347E1-2D69-4D2C-8E25-A165B86DE5CB}.Release|x64.ActiveCfg = Release|x64
-		{EC5347E1-2D69-4D2C-8E25-A165B86DE5CB}.Release|x64.Build.0 = Release|x64
-		{9565DE15-7BC5-4A41-9BA5-650F9E12947E}.Debug|x64.ActiveCfg = Debug|x64
-		{9565DE15-7BC5-4A41-9BA5-650F9E12947E}.Debug|x64.Build.0 = Debug|x64
-		{9565DE15-7BC5-4A41-9BA5-650F9E12947E}.Release|x64.ActiveCfg = Release|x64
-		{9565DE15-7BC5-4A41-9BA5-650F9E12947E}.Release|x64.Build.0 = Release|x64
-		{E2473E29-B19C-4B3B-AE57-08387EC68BA6}.Debug|x64.ActiveCfg = Debug|x64
-		{E2473E29-B19C-4B3B-AE57-08387EC68BA6}.Debug|x64.Build.0 = Debug|x64
-		{E2473E29-B19C-4B3B-AE57-08387EC68BA6}.Release|x64.ActiveCfg = Release|x64
-		{E2473E29-B19C-4B3B-AE57-08387EC68BA6}.Release|x64.Build.0 = Release|x64
+		{644D06AC-50EF-3082-39AA-44D625EBB7D2}.Debug|x64.ActiveCfg = Debug|x64
+		{644D06AC-50EF-3082-39AA-44D625EBB7D2}.Debug|x64.Build.0 = Debug|x64
+		{644D06AC-50EF-3082-39AA-44D625EBB7D2}.Dist|x64.ActiveCfg = Dist|x64
+		{644D06AC-50EF-3082-39AA-44D625EBB7D2}.Dist|x64.Build.0 = Dist|x64
+		{644D06AC-50EF-3082-39AA-44D625EBB7D2}.Release|x64.ActiveCfg = Release|x64
+		{644D06AC-50EF-3082-39AA-44D625EBB7D2}.Release|x64.Build.0 = Release|x64
+		{25F339C1-1195-6497-FA4F-78EBE690EBE7}.Debug|x64.ActiveCfg = Debug|x64
+		{25F339C1-1195-6497-FA4F-78EBE690EBE7}.Debug|x64.Build.0 = Debug|x64
+		{25F339C1-1195-6497-FA4F-78EBE690EBE7}.Dist|x64.ActiveCfg = Dist|x64
+		{25F339C1-1195-6497-FA4F-78EBE690EBE7}.Dist|x64.Build.0 = Dist|x64
+		{25F339C1-1195-6497-FA4F-78EBE690EBE7}.Release|x64.ActiveCfg = Release|x64
+		{25F339C1-1195-6497-FA4F-78EBE690EBE7}.Release|x64.Build.0 = Release|x64
+		{0E887EB5-FA54-D9C0-236E-C7680F9A0E4F}.Debug|x64.ActiveCfg = Debug|x64
+		{0E887EB5-FA54-D9C0-236E-C7680F9A0E4F}.Debug|x64.Build.0 = Debug|x64
+		{0E887EB5-FA54-D9C0-236E-C7680F9A0E4F}.Dist|x64.ActiveCfg = Dist|x64
+		{0E887EB5-FA54-D9C0-236E-C7680F9A0E4F}.Dist|x64.Build.0 = Dist|x64
+		{0E887EB5-FA54-D9C0-236E-C7680F9A0E4F}.Release|x64.ActiveCfg = Release|x64
+		{0E887EB5-FA54-D9C0-236E-C7680F9A0E4F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BA75173B-1836-42F7-88DD-3D021E24B2FA}
 	EndGlobalSection
 EndGlobal
